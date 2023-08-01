@@ -93,15 +93,15 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
                           Password
                         </label>
                       </div>
-                      <input
-                        className={`form-input w-full text-gray-800 focus:border-teal-600 ${
-                          error && "border-red-600"
-                        }`}
-                        id="password"
-                        onChange={(event) => setPassword(event.target.value)}
+                      <Input
+                        name="password"
+                        handleChange={(event) =>
+                          setPassword(event.target.value)
+                        }
                         placeholder="Enter your password"
-                        required
+                        required={true}
                         type="password"
+                        error={error}
                       />
                     </div>
                   </div>

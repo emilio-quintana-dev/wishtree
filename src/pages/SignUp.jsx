@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import Navbar from "../partials/Navbar";
+import Input from "../utils/components/Input";
 
 const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [userName, setUserName] = useState("");
+  const [error, setError] = useState(undefined);
 
   const handleSuccesfulAuth = (data) => {
     handleLogin(data);
@@ -36,6 +38,8 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
       .then((response) => {
         if (response.data.status === "created") {
           handleSuccesfulAuth(response.data);
+        } else {
+          setError("Something went wrong, please try again.");
         }
       })
       .catch((error) => {
@@ -59,7 +63,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
                 <h1 className="h1">
                   Welcome. We exist to make entrepreneurism easier.
                 </h1>
@@ -77,14 +81,16 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                       >
                         First Name <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        type="first-name"
+
+                      <Input
                         name="first-name"
+                        handleChange={(event) =>
+                          setFirstName(event.target.value)
+                        }
                         placeholder="Enter your first name"
-                        value={firstName}
-                        onChange={(event) => setFirstName(event.target.value)}
-                        required
+                        required={true}
+                        type="first-name"
+                        error={error}
                       />
                     </div>
                   </div>
@@ -98,14 +104,16 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                       >
                         Last Name <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        type="last-name"
+
+                      <Input
                         name="last-name"
+                        handleChange={(event) =>
+                          setLastName(event.target.value)
+                        }
                         placeholder="Enter your last name"
-                        value={lastName}
-                        onChange={(event) => setLastName(event.target.value)}
-                        required
+                        required={true}
+                        type="last-name"
+                        error={error}
                       />
                     </div>
                   </div>
@@ -119,14 +127,14 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                       >
                         Email <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        type="email"
+
+                      <Input
                         name="email"
+                        handleChange={(event) => setEmail(event.target.value)}
                         placeholder="Enter your email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        required
+                        required={true}
+                        type="email"
+                        error={error}
                       />
                     </div>
                   </div>
@@ -140,13 +148,14 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                       >
                         Username <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        name="email"
-                        placeholder="Enter your username"
-                        value={userName}
-                        onChange={(event) => setUserName(event.target.value)}
-                        required
+
+                      <Input
+                        name="username"
+                        handleChange={(event) => setEmail(event.target.value)}
+                        placeholder="Enter your preferred username"
+                        required={true}
+                        type="username"
+                        error={error}
                       />
                     </div>
                   </div>
@@ -160,14 +169,16 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                       >
                         Password <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        type="password"
+
+                      <Input
                         name="password"
+                        handleChange={(event) =>
+                          setPassword(event.target.value)
+                        }
                         placeholder="Enter your password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        required
+                        required={true}
+                        type="password"
+                        error={error}
                       />
                     </div>
                   </div>
@@ -182,19 +193,21 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                         Password Confirmation{" "}
                         <span className="text-red-600">*</span>
                       </label>
-                      <input
-                        className="form-input w-full text-gray-800"
-                        type="password"
+
+                      <Input
                         name="password"
-                        placeholder="Enter your password again"
-                        value={passwordConfirmation}
-                        onChange={(event) =>
+                        handleChange={(event) =>
                           setPasswordConfirmation(event.target.value)
                         }
-                        required
+                        placeholder="Enter your password a second time"
+                        required={true}
+                        type="password"
+                        error={error}
                       />
                     </div>
                   </div>
+
+                  {error && <p className="text-red-600">{error}</p>}
 
                   {/* Sign Up Button */}
                   <div className="flex flex-wrap -mx-3 mt-6">
@@ -206,17 +219,6 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                         Sign up
                       </button>
                     </div>
-                  </div>
-                  <div className="text-sm text-gray-500 text-center mt-3">
-                    By creating an account, you agree to the{" "}
-                    <a className="underline" href="#0">
-                      terms & conditions
-                    </a>
-                    , and our{" "}
-                    <a className="underline" href="#0">
-                      privacy policy
-                    </a>
-                    .
                   </div>
                 </form>
                 <div className="flex items-center my-6">
