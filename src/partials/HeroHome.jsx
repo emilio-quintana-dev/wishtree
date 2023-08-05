@@ -1,16 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import Modal from "../utils/Modal";
+import React from "react";
 
-// import HeroImage from "../images/hero-image.jpg";
+import HeroImage from "../images/hero-1.jpg";
 
 function HeroHome() {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const video = useRef(null);
-
-  useEffect(() => {
-    videoModalOpen ? video.current.play() : video.current.pause();
-  }, [videoModalOpen]);
-
   return (
     <section className="relative">
       {/* Illustration behind hero content */}
@@ -92,13 +84,14 @@ function HeroHome() {
               data-aos-delay="450"
             >
               <div className="flex flex-col justify-center">
-                {/* <img */}
-                {/*   className="mx-auto rounded-lg" */}
-                {/*   src={HeroImage} */}
-                {/*   width="768" */}
-                {/*   height="432" */}
-                {/*   alt="Hero" */}
-                {/* /> */}
+                <img
+                  className="mx-auto rounded-lg"
+                  src={HeroImage}
+                  width="768"
+                  height="432"
+                  alt="Hero"
+                />
+
                 <svg
                   className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto"
                   width="768"
@@ -131,29 +124,6 @@ function HeroHome() {
                 </svg>
               </div>
             </div>
-
-            {/* Modal */}
-            <Modal
-              id="modal"
-              ariaLabel="modal-headline"
-              show={videoModalOpen}
-              handleClose={() => setVideoModalOpen(false)}
-            >
-              <div className="relative pb-9/16">
-                <video
-                  ref={video}
-                  className="absolute w-full h-full"
-                  width="1920"
-                  height="1080"
-                  loop
-                  autoPlay
-                  controls
-                >
-                  <source src="/videos/video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </Modal>
           </div>
         </div>
       </div>
