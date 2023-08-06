@@ -19,12 +19,12 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
 
   return (
     <header
-      className={`bg-white fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
-        !top && "bg-white backdrop-blur-sm shadow-lg"
+      className={`bg-transparent mt-10 fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
+        !top && "bg-transparent backdrop-blur-sm shadow-lg"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-8xl mx-auto px-10 lg:px-20">
+        <div className="bg-white p-4 flex items-center justify-between h-[88px] md:h-[88px] rounded-full">
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4 flex items-center">
             {/* Logo */}
@@ -114,37 +114,15 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
           {loggedInStatus === "NOT_LOGGED_IN" && (
             <nav className="flex flex-grow">
               <ul className="flex flex-grow justify-end flex-wrap items-center">
-                <li>
-                  <Tooltip content="Home">
-                    <Link
-                      to="/"
-                      className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                        />
-                      </svg>
-                    </Link>
-                  </Tooltip>
-                </li>
-                <li>
+                <li className="py-3 px-2 bg-[#eff0ec] rounded-md hover:bg-[#eff0ec]">
                   <Link
                     to="/login"
-                    className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+                    className="text-black leading-6 font-semibold px-5 py-3 flex items-center transition duration-150 ease-in-out"
                   >
                     Login
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/signup"
