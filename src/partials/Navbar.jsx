@@ -24,7 +24,7 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
       }`}
     >
       <div className="max-w-8xl mx-auto px-10 lg:px-20">
-        <div className="bg-white p-4 flex items-center justify-between h-[88px] md:h-[88px] rounded-full">
+        <div className="bg-white py-2 px-8 flex items-center justify-between h-[88px] md:h-[88px] rounded-full">
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4 flex items-center">
             {/* Logo */}
@@ -114,7 +114,7 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
           {loggedInStatus === "NOT_LOGGED_IN" && (
             <nav className="flex flex-grow">
               <ul className="flex flex-grow justify-end flex-wrap items-center">
-                <li className="py-3 px-2 bg-[#eff0ec] rounded-md hover:bg-[#eff0ec]">
+                <li className="py-3 px-2 bg-gray-100 rounded-md hover:bg-gray-200">
                   <Link
                     to="/login"
                     className="text-black leading-6 font-semibold px-5 py-3 flex items-center transition duration-150 ease-in-out"
@@ -123,10 +123,10 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
                   </Link>
                 </li>
 
-                <li>
+                <li className="py-3 px-2 bg-black rounded-full hover:bg-gray-800 ml-2">
                   <Link
                     to="/signup"
-                    className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-white px-5 py-3 flex items-center transition duration-150 ease-in-out"
                   >
                     <span>Sign up</span>
                   </Link>
