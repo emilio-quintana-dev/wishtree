@@ -18,13 +18,9 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
   }, [top]);
 
   return (
-    <header
-      className={`bg-transparent mt-10 fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
-        !top && "bg-transparent backdrop-blur-sm shadow-lg"
-      }`}
-    >
-      <div className="max-w-8xl mx-auto px-10 lg:px-20">
-        <div className="bg-white py-2 px-8 flex items-center justify-between h-[88px] md:h-[88px] rounded-full">
+    <header className="bg-transparent mt-5 md:mt-10 fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out">
+      <div className="max-w-8xl mx-auto px-5 md:px-10 xl:px-20">
+        <div className="bg-white py-2 px-4 flex items-center justify-between h-[78px] md:h-[88px] rounded-full">
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4 flex items-center">
             {/* Logo */}
@@ -36,7 +32,7 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
           {/* Site navigation */}
           {loggedInStatus === "LOGGED_IN" && (
             <nav className="flex flex-grow">
-              <ul className="flex flex-grow justify-end flex-wrap items-center">
+              <ul className="flex flex-grow justify-end items-center">
                 <li>
                   <Tooltip content="Home">
                     <Link
@@ -113,8 +109,8 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
 
           {loggedInStatus === "NOT_LOGGED_IN" && (
             <nav className="flex flex-grow">
-              <ul className="flex flex-grow justify-end flex-wrap items-center">
-                <li className="py-3 px-2 bg-gray-100 rounded-md hover:bg-gray-200">
+              <ul className="flex flex-grow justify-end items-center">
+                <li className="py-1 md:py-3 px-2 bg-gray-100 rounded-md hover:bg-gray-200">
                   <Link
                     to="/login"
                     className="text-black leading-6 font-semibold px-5 py-3 flex items-center transition duration-150 ease-in-out"
@@ -123,7 +119,7 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
                   </Link>
                 </li>
 
-                <li className="py-3 px-2 bg-black rounded-full hover:bg-gray-800 ml-2">
+                <li className="py-1 md:py-3 px-2 bg-black rounded-full hover:bg-gray-800 ml-2">
                   <Link
                     to="/signup"
                     className="font-medium text-white px-5 py-3 flex items-center transition duration-150 ease-in-out"

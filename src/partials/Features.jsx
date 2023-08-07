@@ -23,25 +23,24 @@ const Features = () => {
   }, [tab]);
 
   return (
-    <section className="relative pb-32">
-      {/* Section background (needs .relative class on parent and next sibling elements) */}
-      <div
-        className="absolute inset-0 bg-gray-100 pointer-events-none mb-16"
-        aria-hidden="true"
-      ></div>
-      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2"></div>
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-12 md:pt-40">
+    <section className="relative bg-gray-100 pb-32">
+      <div className="max-w-5xl md:max-w-7xl mx-auto px-6 sm:px-6">
+        <div className="pt-12">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">Start monetizing your following</h1>
-            <p className="text-xl text-gray-600">
+          <div className="mx-auto pb-12 md:pb-16">
+            <h3 className="h2 mb-4 font-bold">
+              Start monetizing your following
+            </h3>
+            <p className="text-gray-900 font-normal">
               As an influencer, you have the power to inspire and motivate your
               followers. Now, you can leverage this influence to receive
               financial support from your fans and turn your dreams into
               reality.
             </p>
+
+            <button className="text-gray-900 px-6 py-4 rounded-full bg-purple-200 hover:bg-purple-200 mt-4 text-lg sm:w-auto sm:mb-0">
+              Get started for free
+            </button>
           </div>
 
           {/* Section content */}
@@ -52,8 +51,8 @@ const Features = () => {
               data-aos="fade-right"
             >
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">How does it work?</h3>
-                <p className="text-xl text-gray-600">
+                <h3 className="h2 mb-4 font-bold">How does it work?</h3>
+                <p className="text-gray-900 font-normal">
                   Our platform offers a seamless and secure way for your fans to
                   donate to you, allowing you to fund your next project, pursue
                   your passion, or simply cover your expenses.
@@ -62,7 +61,7 @@ const Features = () => {
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
+                  className={`flex items-center p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 1
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
                       : "bg-gray-200 border-transparent"
@@ -77,7 +76,7 @@ const Features = () => {
                     <div className="font-bold leading-snug tracking-tight mb-1">
                       Create an account
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-900 font-normal">
                       Sign up and follow our secure bank account linking process
                       using Stripe to receive funds once a donation is made.
                     </div>
@@ -93,7 +92,7 @@ const Features = () => {
                   </div>
                 </a>
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
+                  className={`flex items-center p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 2
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
                       : "bg-gray-200 border-transparent"
@@ -108,7 +107,7 @@ const Features = () => {
                     <div className="font-bold leading-snug tracking-tight mb-1">
                       Create a list
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-900 font-normal">
                       Create your own wishlist with gifts from any retailer and
                       enjoy complete control over your privacy and orders.
                     </div>
@@ -127,7 +126,7 @@ const Features = () => {
                   </div>
                 </a>
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
+                  className={`flex items-center p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 3
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
                       : "bg-gray-200 border-transparent"
@@ -142,7 +141,7 @@ const Features = () => {
                     <div className="font-bold leading-snug tracking-tight mb-1">
                       Get paid!
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-900 font-normal">
                       Share your Wishtree profile with your followers and wait
                       for your donations to come!
                     </div>

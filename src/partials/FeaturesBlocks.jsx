@@ -16,7 +16,9 @@ const FeaturesBlocks = () => {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">A free and safe way to share wishlists.</h2>
+            <h2 className="h2 mb-4 text-white">
+              A free and safe way to share wishlists.
+            </h2>
           </div>
 
           {/* Items */}
