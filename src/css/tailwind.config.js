@@ -38,6 +38,9 @@ module.exports = withMT({
           800: "#285E61",
           900: "#234E52",
         },
+        "bright-purple": "#6142fb",
+        "bright-yellow": "#e8f953",
+        "dark-purple": "#280031",
       },
       boxShadow: {
         xs: "0 0 0 1px rgba(0, 0, 0, 0.16)",

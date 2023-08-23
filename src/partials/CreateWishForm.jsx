@@ -7,6 +7,8 @@ import {
 } from "@rpldy/uploady";
 import { asUploadButton } from "@rpldy/upload-button";
 
+import Input from "../utils/components/Input";
+
 const UploadField = asUploadButton(
   forwardRef(({ onChange, showSuccessNotification, ...props }, ref) => {
     const [text, setText] = useState("Upload Custom Photo");
@@ -43,7 +45,16 @@ const CreateWishForm = ({
   user,
   showSuccessNotification,
 }) => {
+  const [error, setError] = useState(undefined);
   const { processPending } = useUploady();
+
+  const emptyWishObject = {
+    id: "",
+    imageUrl: "",
+    name: "",
+    price: "",
+    url: "",
+  };
 
   const onSubmit = (event) => {
     if (fileName) {
@@ -53,6 +64,8 @@ const CreateWishForm = ({
           userId: user.id,
         },
       });
+
+      setCurrentWish(emptyWishObject);
     } else {
       axios
         .post(`http://localhost:3001/wishes`, {
@@ -97,19 +110,18 @@ const CreateWishForm = ({
           >
             Product Name <span className="text-red-600">*</span>
           </label>
-          <input
-            className="form-input w-full text-gray-800"
-            type="name"
+          <Input
             name="name"
-            placeholder="Enter your wish's name"
-            value={wish.name}
-            onChange={(event) =>
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 name: event.target.value,
               })
             }
-            required
+            placeholder="Enter your wish's name"
+            required={true}
+            type="name"
+            error={error}
           />
         </div>
       </div>
@@ -124,18 +136,18 @@ const CreateWishForm = ({
             Product Price <span className="text-red-600">*</span>
           </label>
 
-          <input
-            className="form-input w-full text-gray-800"
+          <Input
             name="price"
-            placeholder="Enter your wish's price"
-            value={wish.price}
-            onChange={(event) =>
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 price: event.target.value,
               })
             }
-            required
+            placeholder="Enter your wish's price"
+            required={true}
+            type="price"
+            error={error}
           />
         </div>
       </div>
@@ -150,17 +162,19 @@ const CreateWishForm = ({
           >
             Product URL{" "}
           </label>
-          <input
-            className="form-input w-full text-gray-800"
-            name="url"
-            placeholder="Enter your wish's URL"
-            value={wish.url}
-            onChange={(event) =>
+
+          <Input
+            name="link"
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 url: event.target.value,
               })
             }
+            placeholder="Enter your wish's URL"
+            required={false}
+            type="link"
+            error={error}
           />
         </div>
       </div>
@@ -169,10 +183,10 @@ const CreateWishForm = ({
       <div className="flex flex-wrap -mx-3 mt-6">
         <div className="w-full px-3">
           <button
-            className="btn text-white bg-teal-600 w-full text-base rounded-lg"
+            className="btn text-white bg-bright-purple w-full text-base rounded-lg"
             type="submit"
           >
-            Create{" "}
+            Create
           </button>
         </div>
       </div>

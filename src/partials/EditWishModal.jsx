@@ -27,8 +27,10 @@ const EditWishModal = ({
           </button>
         </div>
 
-        <div className="p-8">
-          <p className="text-lg text-teal-600 mb-5">Edit Wish</p>
+        <div className="p-8 pt-0">
+          <p className="text-3xl font-extrabold text-bright-purple mb-5">
+            Edit Wish
+          </p>
 
           <div className="max-w-sm mx-auto">
             <Uploady

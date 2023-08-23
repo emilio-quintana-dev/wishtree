@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Tooltip } from "@material-tailwind/react";
 
 import Logo from "../images/logo.png";
+import IconLogo from "../images/icon-logo.png";
 
 const Navbar = ({ loggedInStatus, handleLogout, user }) => {
   const [top, setTop] = useState(true);
@@ -25,7 +26,21 @@ const Navbar = ({ loggedInStatus, handleLogout, user }) => {
           <div className="flex-shrink-0 mr-4 flex items-center">
             {/* Logo */}
             <Link to="/" className="block" aria-label="Cruip">
-              <img src={Logo} alt="logo" width="55" height="55" />
+              <img
+                src={Logo}
+                alt="logo"
+                width="200"
+                height="200"
+                className="hidden md:block"
+              />
+
+              <img
+                src={IconLogo}
+                alt="logo"
+                width="50"
+                height="50"
+                className="md:hidden"
+              />
             </Link>
           </div>
 

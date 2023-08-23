@@ -23,8 +23,8 @@ const Card = ({ title, description, icon }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center py-12 px-4 bg-white rounded shadow-xl min-h-full text-center">
-      <div className="p-2 rounded-full bg-teal-600 mb-8">{renderIcon()}</div>
+    <div className="relative flex flex-col items-center py-12 px-4 bg-white rounded-2xl shadow-xl min-h-full text-center">
+      <div className="p-2 rounded-full bg-dark-purple mb-8">{renderIcon()}</div>
 
       <h4 className="text-xl font-bold leading-snug tracking-tight mb-8">
         {title}

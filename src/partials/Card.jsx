@@ -4,18 +4,14 @@ import Placeholder from "../images/card-top.jpg";
 
 const Card = ({ wish, openModal }) => {
   return (
-    <div
-      className="shadow-2xl hover:shadow-teal-600 mr-10 mb-6"
-      key={wish.name}
-    >
+    <div className="shadow-2xl hover:shadow-bright-purple mb-6" key={wish.name}>
       <button
-        className="max-w-sm rounded overflow-hidden"
+        className="max-w-sm rounded-xl overflow-hidden"
         onClick={(event) => openModal(event, wish)}
       >
         <div>
           <img
-            width="325px"
-            className="h-56"
+            className="md:h-52 md:w-[17rem]"
             src={wish.imageUrl ? wish.imageUrl : Placeholder}
           />
         </div>

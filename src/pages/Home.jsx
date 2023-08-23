@@ -18,7 +18,7 @@ const Home = ({ user, loggedInStatus, handleLogout }) => {
       />
 
       {/*  Page content */}
-      <main className="flex-grow bg-teal-900">
+      <main className="flex-grow bg-bright-purple">
         {/*  Page sections */}
         <HeroHome />
         <FeaturesHome />

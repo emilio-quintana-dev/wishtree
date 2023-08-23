@@ -162,8 +162,8 @@ const Dashboard = ({
       />
 
       {/*  Page content */}
-      <main className="flex-grow mb-40">
-        <section className="relative">
+      <main>
+        <section className="bg-gray-100 w-full">
           {/*  User's information section. */}
           <ProfileHeader
             fetchedUser={fetchedUser}
@@ -171,33 +171,34 @@ const Dashboard = ({
           />
 
           {/*  Wishes section. */}
-          <div className="pl-32 pr-32 items-start">
-            {/*  Wishes Toolbar */}
-            {/*  TODO: Move into its own component.  */}
-            {/*  TODO: Add sorting functionality.  */}
-            <div className="flex w-full justify-between">
-              <p className="mb-10">{fetchedUser.wishes.length} Wishes</p>
+          <div className="bg-gray-200">
+            <div className="mx-auto items-start pt-16 pb-16 max-w-[75%]">
+              <div className="flex w-full justify-between">
+                <p className="mb-10 hidden md:block">
+                  {fetchedUser.wishes.length} Wishes
+                </p>
 
-              {lookingAtOwnProfile && (
-                <button
-                  className="btn text-white bg-teal-600 text-base rounded-lg"
-                  onClick={(event) => openCreateModal(event)}
-                >
-                  Create Wish
-                </button>
-              )}
-            </div>
+                {lookingAtOwnProfile && (
+                  <button
+                    className="btn text-white bg-bright-purple hover:bg-dark-purple text-base rounded-lg"
+                    onClick={(event) => openCreateModal(event)}
+                  >
+                    Create Wish
+                  </button>
+                )}
+              </div>
 
-            <div className="mt-6 flex flex-wrap">
-              {fetchedUser.wishes.map((wish) => {
-                return (
-                  <Card
-                    openModal={(event) => handleCardClick(event, wish)}
-                    key={wish.id}
-                    wish={wish}
-                  />
-                );
-              })}
+              <div className="mt-6 flex flex-wrap justify-between">
+                {fetchedUser.wishes.map((wish) => {
+                  return (
+                    <Card
+                      openModal={(event) => handleCardClick(event, wish)}
+                      key={wish.id}
+                      wish={wish}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>

@@ -51,14 +51,12 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
 
       {/*  Page content */}
       <main className="flex-grow">
-        <section className="bg-gradient-to-b from-gray-100 to-white">
+        <section className="bg-gradient-to-b from-gray-100 to-white pt-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-                <h1 className="h1">
-                  Welcome back. We exist to make entrepreneurism easier.
-                </h1>
+              <div className="max-w-3xl mx-auto text-center pb-12">
+                <h1 className="h1 text-dark-purple">Welcome back.</h1>
               </div>
 
               {/* Form */}
@@ -110,7 +108,7 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
 
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-white bg-teal-600 hover:bg-teal-700 w-full">
+                      <button className="btn text-white bg-bright-purple hover:bg-dark-purple w-full">
                         Sign in
                       </button>
                     </div>
@@ -131,7 +129,7 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
                   Don’t you have an account?{" "}
                   <Link
                     to="/signup"
-                    className="text-teal-600 hover:underline transition duration-150 ease-in-out"
+                    className="text-bright-purple hover:underline transition duration-150 ease-in-out"
                   >
                     Sign up
                   </Link>

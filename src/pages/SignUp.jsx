@@ -59,14 +59,12 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
 
       {/*  Page content */}
       <main className="flex-grow">
-        <section className="bg-gradient-to-b from-gray-100 to-white">
+        <section className="bg-gradient-to-b from-gray-100 to-white pt-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-                <h1 className="h1">
-                  Welcome. We exist to make entrepreneurism easier.
-                </h1>
+              <div className="max-w-3xl mx-auto text-center pb-12">
+                <h1 className="h1 text-dark-purple">Welcome.</h1>
               </div>
 
               {/* Form */}
@@ -151,7 +149,9 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
 
                       <Input
                         name="username"
-                        handleChange={(event) => setEmail(event.target.value)}
+                        handleChange={(event) =>
+                          setUserName(event.target.value)
+                        }
                         placeholder="Enter your preferred username"
                         required={true}
                         type="username"
@@ -213,7 +213,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
                       <button
-                        className="btn text-white bg-teal-600 hover:bg-teal-800 w-full"
+                        className="btn text-white bg-bright-purple hover:bg-dark-purple w-full"
                         type="submit"
                       >
                         Sign up
@@ -236,7 +236,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
                   Already using Wishtree?{" "}
                   <Link
                     to="/login"
-                    className="text-teal-600 hover:underline transition duration-150 ease-in-out"
+                    className="text-bright-purple hover:underline transition duration-150 ease-in-out"
                   >
                     Sign in
                   </Link>

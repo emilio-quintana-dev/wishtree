@@ -1,4 +1,5 @@
 import React, { useState, useMemo, forwardRef } from "react";
+import Input from "../utils/components/Input";
 import axios from "axios";
 import {
   useBatchAddListener,
@@ -44,6 +45,7 @@ const EditWishForm = ({
   wish,
 }) => {
   const { processPending } = useUploady();
+  const [error, setError] = useState(undefined);
   const [fileName, setFileName] = useState(null);
 
   const onSubmit = (event) => {
@@ -99,19 +101,19 @@ const EditWishForm = ({
           >
             Product Name <span className="text-red-600">*</span>
           </label>
-          <input
-            className="form-input w-full text-gray-800"
-            type="name"
+          <Input
             name="name"
-            placeholder="Enter your wish's name"
-            value={wish.name}
-            onChange={(event) =>
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 name: event.target.value,
               })
             }
-            required
+            placeholder="Enter your wish's name"
+            error={error}
+            required={false}
+            type="name"
+            value={wish.name}
           />
         </div>
       </div>
@@ -126,19 +128,19 @@ const EditWishForm = ({
             Product Price <span className="text-red-600">*</span>
           </label>
 
-          <input
-            className="form-input w-full text-gray-800"
-            type="price"
+          <Input
             name="price"
-            placeholder="Enter your wish's price"
-            value={wish.price}
-            onChange={(event) =>
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 price: event.target.value,
               })
             }
-            required
+            error={error}
+            placeholder="Enter your wish's price"
+            required={false}
+            type="price"
+            value={wish.price}
           />
         </div>
       </div>
@@ -152,17 +154,20 @@ const EditWishForm = ({
           >
             Product URL{" "}
           </label>
-          <input
-            className="form-input w-full text-gray-800"
-            placeholder="Enter your wish's URL"
-            value={wish.url}
-            onChange={(event) => {
-              console.log(event);
+
+          <Input
+            name="url"
+            handleChange={(event) =>
               setCurrentWish({
                 ...wish,
                 url: event.target.value,
-              });
-            }}
+              })
+            }
+            placeholder="Enter your wish's URL"
+            error={error}
+            required={false}
+            type="url"
+            value={wish.url}
           />
         </div>
       </div>
@@ -171,7 +176,7 @@ const EditWishForm = ({
       <div className="flex flex-wrap -mx-3 mt-6">
         <div className="w-full px-3">
           <button
-            className="btn text-white bg-teal-600 w-full text-base rounded-lg"
+            className="btn text-white bg-bright-purple w-full text-base rounded-lg"
             type="submit"
           >
             Update{" "}
