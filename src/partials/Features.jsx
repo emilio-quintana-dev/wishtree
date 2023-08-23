@@ -8,7 +8,7 @@ const Features = () => {
       {/* Section Container */}
       <div className="max-w-5xl pt-36 h-full mx-auto px-6 md:pt-0 sm:px-6 md:max-w-7xl">
         {/* Content Container */}
-        <div className="flex justify-between md:flex-col h-full items-center max-auto lg:flex-row pb-12">
+        <div className="flex flex-col-reverse justify-between md:flex-col h-full items-center max-auto lg:flex-row pb-12">
           {/* Left Panel */}
           <div className="max-w-full md:max-w-[50%] md:pr-8">
             {/* Placeholder */}
