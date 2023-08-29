@@ -36,8 +36,10 @@ const AddToCartModal = ({
           </button>
         </div>
 
-        <div className="p-8">
-          <p className="text-lg text-teal-600 mb-5">Add to Cart</p>
+        <div className="p-8 pt-0">
+          <p className="text-3xl font-extrabold text-bright-purple mb-5">
+            Add to Cart
+          </p>
 
           <div className="max-w-sm mx-auto">
             <img
@@ -51,7 +53,7 @@ const AddToCartModal = ({
             <p className="mb-5">${wish.price}</p>
 
             <button
-              className="btn text-white bg-teal-600 w-full text-base rounded-lg"
+              className="btn text-white bg-bright-purple w-full text-base rounded-lg"
               onClick={handleClick}
             >
               Add to cart and checkout
