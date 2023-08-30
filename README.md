@@ -1,78 +1,25 @@
-# Free Tailwind landing page template
+# A web-app made to help content creators to receive donations from their fans.
 
-![Simple TailwindCSS template preview](https://user-images.githubusercontent.com/2683512/96160974-f93aa780-0f16-11eb-9ce4-81d94b216be6.png)
+https://wishtree.io/
 
-**Simple Light** is a free landing page template built on top of **TailwindCSS** and fully coded in **React**. Simple light is designed to provide all the basic components a developer need to create a landing page for SaaS products, online services, and more. 
-Use it for whatever you want, and be sure to reach us out on Twitter if you build anything cool/useful with it.
-Created and maintained with ❤️ by [Cruip.com](https://cruip.com/).
+## Screenshots
 
-## Live demo
+### Home/Landing Page
 
-Check the live demo here 👉️ [https://simple.cruip.com/](https://simple.cruip.com/)
+<img width="1545" alt="Screenshot 2023-08-30 at 11 23 25 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/e30b9e47-33fb-4a82-ba8c-e3dd903c6357">
+<img width="1540" alt="Screenshot 2023-08-30 at 11 23 39 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/2c09abaa-af37-4875-b69a-4b9799ab4fce">
+<img width="1543" alt="Screenshot 2023-08-30 at 11 23 55 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/a14fb271-2a86-4a58-a473-9a24f4ed5b03">
+<img width="1545" alt="Screenshot 2023-08-30 at 11 24 06 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/41556cce-4381-41ab-9756-09b8f887a6a1">
 
-## Simple Pro
+### Login/Sign up Page
+<img width="1537" alt="Screenshot 2023-08-30 at 11 25 49 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/07790ee7-4850-4bf3-9b33-4a8ffc49d7ae">
+<img width="1544" alt="Screenshot 2023-08-30 at 11 25 38 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/580fe258-0ac3-4651-852d-e03e6eb825eb">
 
-[![Simple Pro](https://user-images.githubusercontent.com/2683512/151178282-fd81b300-349a-42c3-a30a-f70f6e711e74.png)](https://cruip.com/)
+### Profile Page
+<img width="1526" alt="Screenshot 2023-08-30 at 11 29 16 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/0da7680d-bd77-4922-8173-b774a7871426">
 
-## Design files
+### Profile Page - Create Wish
+<img width="1527" alt="Screenshot 2023-08-30 at 11 29 26 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/94ff9d69-85ed-41f5-9d16-15956fb80998">
 
-If you need the design files, you can download them from Figma's Community 👉 https://bit.ly/3HOZMpf
-
-## Table of contents
-
-* [Usage](#usage)
-  * [Project setup](#project-setup)
-  * [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
-  * [Compiles and minifies for production](#compiles-and-minifies-for-production)
-  * [Customize configuration](#customize-configuration)
-* [Support notes](#support-notes)            
-* [Credits](#credits)
-* [Terms and License](#terms-and-license)
-* [About Us](#about-us)
-* [Stay in the loop](#stay-in-the-loop)
-
-## Usage
-
-This project was bootstrapped with [Vite](https://vitejs.dev/).
-
-### Project setup
-```
-npm install
-```
-
-#### Compiles and hot-reloads for development
-```
-npm run dev
-```
-
-#### Compiles and minifies for production
-```
-npm run build
-```
-
-#### Customize configuration
-See [Configuration Reference](https://vitejs.dev/guide/).
-
-### Support notes
-We are shipping our templates with a very basic React configuration to let you quickly get into the development process, but we don't discourage you from using any other configuration or framework built on the top of React. So, please note that any request dealing with React (e.g. extra features, customisations, et cetera) is to be considered out of the support scope.
-
-For more information about what support covers, please see our (FAQs)[https://cruip.com/faq/].
-
-## Credits
-
-- [Nucleo](https://nucleoapp.com/)
-
-## Terms and License
-
-- Released under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html).
-- Copyright 2020 [Cruip](https://cruip.com/).
-- Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the template.
-- Attribution is not required, although it is really appreciated.
-
-## About Us
-
-We're an Italian developer/designer duo creating high-quality design/code resources for developers, makers, and startups.
-
-## Stay in the loop
-
-If you would like to know when we release new resources, you can follow us on [Twitter](https://twitter.com/Cruip_com), or you can subscribe to our monthly [newsletter](https://cruip.com/#subscribe).
+### Profile Page - Edit Wish
+<img width="1525" alt="Screenshot 2023-08-30 at 11 29 41 AM" src="https://github.com/emilio-quintana-dev/wishtree/assets/43478497/60959fe2-366b-4ff6-850c-10b362958b9a">
