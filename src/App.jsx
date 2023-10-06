@@ -13,14 +13,13 @@ import Home from "./pages/Home";
 import ResetPassword from "./pages/ResetPassword";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Landing from "./pages/Landing";
 
 function App() {
   const location = useLocation();
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
   const [user, setUser] = useState({});
   const [wishesInCart, setWishesInCart] = useState([]);
-
-  console.log(wishesInCart);
 
   const handleLogin = (data) => {
     setUser(data.user);
@@ -30,7 +29,7 @@ function App() {
   const handleLogout = () => {
     axios
       .delete("http://localhost:3001/logout", { withCredentials: true })
-      .then((response) => {
+      .then((_response) => {
         setUser({});
         setLoggedInStatus("NOT_LOGGED_IN");
         window.location.replace(`http://localhost:3000/`);
@@ -82,6 +81,7 @@ function App() {
           />
         }
       />
+
       <Route
         path="/login"
         element={
@@ -93,6 +93,7 @@ function App() {
           />
         }
       />
+
       <Route
         path="/signup"
         element={
@@ -104,7 +105,9 @@ function App() {
           />
         }
       />
+
       <Route path="/reset-password" element={<ResetPassword />} />
+
       <Route
         path="/users/:userName"
         element={
@@ -130,6 +133,8 @@ function App() {
           />
         }
       />
+
+      <Route path="/landing" element={<Landing />} />
     </Routes>
   );
 }

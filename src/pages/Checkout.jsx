@@ -1,14 +1,9 @@
 import React, { memo } from "react";
+import axios from "axios";
 
 import Navbar from "../partials/Navbar";
 
-const Checkout = ({
-  handleLogout,
-  loggedInStatus,
-  setWishesInCart,
-  user,
-  wishesInCart,
-}) => {
+const Checkout = ({ handleLogout, loggedInStatus, user, wishesInCart }) => {
   const cartTotal = () => {
     return cartSubtotal() + comissionFee();
   };
@@ -25,12 +20,13 @@ const Checkout = ({
     return cartSubtotal() * 0.1;
   };
 
-  // const removeWish = (wishId) => {
-  //   const newWishes = wishesInCart.filter((wish) => wish.id !== wishId);
-  //
-  //   setWishesInCart(newWishes);
-  // };
-  //
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post(`http://localhost:3001/create-checkout-session`, {});
+  };
+
+  // Look into adding Wish/Product data to POST request
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -64,25 +60,6 @@ const Checkout = ({
                               {wish.name}
                             </h2>
                           </div>
-                          <div className="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                            <div className="flex items-center space-x-4">
-                              <p className="text-sm">${wish.price}</p>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M6 18L18 6M6 6l12 12"
-                                />
-                              </svg>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -106,9 +83,24 @@ const Checkout = ({
                       </p>
                     </div>
                   </div>
-                  <button className="btn text-white mt-3 bg-bright-purple w-full text-base rounded-lg">
-                    Check out
-                  </button>
+                  <form
+                    action="http://localhost:3001/create-checkout-session"
+                    method="POST"
+                  >
+                    <input type="hidden" name="name" value="Car" />
+                    <input type="hidden" name="price" value={100} />
+                    <input
+                      type="hidden"
+                      name="imageUrl"
+                      value={wishesInCart[0].imageUrl}
+                    />
+                    <button
+                      type="submit"
+                      className="btn text-white mt-3 bg-bright-purple w-full text-base rounded-lg"
+                    >
+                      Check out
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
