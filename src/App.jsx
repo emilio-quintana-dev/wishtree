@@ -70,69 +70,73 @@ function App() {
 
   return (
     <Routes>
-      <Route
-        exact
-        path="/"
-        element={
-          <Home
-            user={user}
-            loggedInStatus={loggedInStatus}
-            handleLogout={handleLogout}
+      {process.env.NODE_ENV === "development" && (
+        <>
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                user={user}
+                loggedInStatus={loggedInStatus}
+                handleLogout={handleLogout}
+              />
+            }
           />
-        }
-      />
 
-      <Route
-        path="/login"
-        element={
-          <SignIn
-            handleLogout={handleLogout}
-            user={user}
-            loggedInStatus={loggedInStatus}
-            handleLogin={handleLogin}
+          <Route
+            path="/login"
+            element={
+              <SignIn
+                handleLogout={handleLogout}
+                user={user}
+                loggedInStatus={loggedInStatus}
+                handleLogin={handleLogin}
+              />
+            }
           />
-        }
-      />
 
-      <Route
-        path="/signup"
-        element={
-          <SignUp
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            loggedInStatus={loggedInStatus}
-            user={user}
+          <Route
+            path="/signup"
+            element={
+              <SignUp
+                handleLogin={handleLogin}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedInStatus}
+                user={user}
+              />
+            }
           />
-        }
-      />
 
-      <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-      <Route
-        path="/users/:userName"
-        element={
-          <Dashboard
-            handleLogout={handleLogout}
-            loggedInStatus={loggedInStatus}
-            setWishesInCart={setWishesInCart}
-            user={user}
-            wishesInCart={wishesInCart}
+          <Route
+            path="/users/:userName"
+            element={
+              <Dashboard
+                handleLogout={handleLogout}
+                loggedInStatus={loggedInStatus}
+                setWishesInCart={setWishesInCart}
+                user={user}
+                wishesInCart={wishesInCart}
+              />
+            }
           />
-        }
-      />
 
-      <Route
-        path="/checkout"
-        element={
-          <Checkout
-            handleLogout={handleLogout}
-            loggedInStatus={loggedInStatus}
-            setWishesInCart={setWishesInCart}
-            user={user}
-            wishesInCart={wishesInCart}
+          <Route
+            path="/checkout"
+            element={
+              <Checkout
+                handleLogout={handleLogout}
+                loggedInStatus={loggedInStatus}
+                setWishesInCart={setWishesInCart}
+                user={user}
+                wishesInCart={wishesInCart}
+              />
+            }
           />
-        }
-      />
+        </>
+      )}
 
       <Route path="/landing" element={<Landing />} />
     </Routes>
