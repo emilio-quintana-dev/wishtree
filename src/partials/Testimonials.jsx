@@ -13,7 +13,7 @@ function Testimonials() {
               <h2 className="h1 mb-4 text-dark-purple">
                 Trusted by content creators all over the world
               </h2>
-              <p className="text-xl text-gray-600" data-aos="zoom-y-out">
+              <p className="text-xl text-gray-600">
                 Some of the platforms our partners use:
               </p>
             </div>
@@ -137,7 +137,7 @@ function Testimonials() {
             </div>
 
             {/* Testimonials */}
-            <div className="max-w-3xl mx-auto mt-20" data-aos="zoom-y-out">
+            <div className="max-w-3xl mx-auto mt-20">
               <div className="relative flex items-start border-2 border-gray-200 rounded bg-white">
                 {/* Testimonial */}
                 <div className="text-center px-12 py-8 pt-20 mx-4 md:mx-0">
