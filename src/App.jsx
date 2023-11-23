@@ -3,12 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Checkout from "./pages/Checkout";
-import Dashboard from "./pages/Dashboard";
+import ProfilePage from "./pages/ProfilePage";
 import Home from "./pages/Home";
 import ResetPassword from "./pages/ResetPassword";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Landing from "./pages/Landing";
+import Navbar from "./partials/Navbar";
 
 import "./css/style.css";
 
@@ -66,9 +67,14 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      {/* Routes for development environment only */}
-      {process.env.NODE_ENV === "development" && (
+    <>
+      <Navbar
+        user={user}
+        loggedInStatus={loggedInStatus}
+        handleLogout={handleLogout}
+      />
+
+      <Routes>
         <>
           <Route path="/" element={<Home {...commonProps} />} />
           <Route path="/login" element={<SignIn {...commonProps} />} />
@@ -76,14 +82,14 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route
             path="/users/:userName"
-            element={<Dashboard {...commonProps} />}
+            element={<ProfilePage {...commonProps} />}
           />
-          <Route path="/checkout" element={<Checkout {...commonProps} />} />
+          <Route path="/cart/:id" element={<Checkout {...commonProps} />} />
+          <Route path="/landing" element={<Landing />} />
         </>
-      )}
-      {/* Routes available in all environments */}
-      <Route path="/landing" element={<Landing />} />
-    </Routes>
+        )
+      </Routes>
+    </>
   );
 }
 
