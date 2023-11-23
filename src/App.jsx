@@ -13,8 +13,6 @@ import Navbar from "./partials/Navbar";
 
 import "./css/style.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-
 function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
   const [user, setUser] = useState({});
@@ -26,7 +24,9 @@ function App() {
 
   const handleLogout = () => {
     axios
-      .delete(`${BASE_URL}/logout`, { withCredentials: true })
+      .delete(`${import.meta.env.VITE_API_ENDPOINT}/logout`, {
+        withCredentials: true,
+      })
       .then(() => {
         setUser({});
         setLoggedInStatus("NOT_LOGGED_IN");
@@ -36,8 +36,11 @@ function App() {
   };
 
   const checkLoginStatus = () => {
+    console.log(import.meta);
     axios
-      .get(`${BASE_URL}/logged_in`, { withCredentials: true })
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/logged_in`, {
+        withCredentials: true,
+      })
       .then((response) => {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           setUser(response.data.user);

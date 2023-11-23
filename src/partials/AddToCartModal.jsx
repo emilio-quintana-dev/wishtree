@@ -7,13 +7,11 @@ import Placeholder from "../images/card-top.jpg";
 import Modal from "../utils/Modal";
 
 const AddToCartModal = ({ showModal, closeModal, wish, user }) => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-
   const navigate = useNavigate();
 
   const handleClick = () => {
     axios
-      .post(`${BASE_URL}/carts`, {
+      .post(`${import.meta.env.VITE_API_ENDPOINT}/carts`, {
         wish_id: wish.id,
         user_id: user.id,
       })

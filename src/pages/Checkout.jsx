@@ -6,18 +6,18 @@ import Navbar from "../partials/Navbar";
 import { useParams } from "react-router-dom";
 
 const Checkout = ({ handleLogout, loggedInStatus, user }) => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-
   const { id } = useParams();
 
   const [cart, setCart] = useState(undefined);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/carts/${id}`).then((response) => {
-      if (response.data) {
-        setCart(response.data);
-      }
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_ENDPOINT}/carts/${id}`)
+      .then((response) => {
+        if (response.data) {
+          setCart(response.data);
+        }
+      });
   }, []);
 
   const handleSubmit = (e) => {
