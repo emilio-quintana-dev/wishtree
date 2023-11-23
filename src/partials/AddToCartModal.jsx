@@ -1,23 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import Placeholder from "../images/card-top.jpg";
 
 import Modal from "../utils/Modal";
 
-const AddToCartModal = ({
-  showModal,
-  closeModal,
-  wish,
-  setWishesInCart,
-  wishesInCart,
-}) => {
+const AddToCartModal = ({ showModal, closeModal, wish, user }) => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setWishesInCart(wishesInCart.concat(wish));
-
-    navigate("/checkout");
+    axios
+      .post(`${BASE_URL}/carts`, {
+        wish_id: wish.id,
+        user_id: user.id,
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          navigate(`/cart/${response.data.id}`);
+        }
+      });
   };
 
   return (

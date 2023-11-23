@@ -18,7 +18,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
   const [user, setUser] = useState({});
-  const [wishesInCart, setWishesInCart] = useState([]);
 
   const handleLogin = (data) => {
     setUser(data.user);
@@ -58,8 +57,6 @@ function App() {
     loggedInStatus,
     handleLogout,
     handleLogin,
-    setWishesInCart,
-    wishesInCart,
   };
 
   useEffect(() => {
