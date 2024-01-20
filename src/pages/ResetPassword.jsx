@@ -1,7 +1,7 @@
 import React from "react";
 
-import Navbar from "../partials/Navbar";
-import Banner from "../partials/Banner";
+import Navbar from "../components/Navbar";
+import Banner from "../components/Banner";
 
 function ResetPassword() {
   return (

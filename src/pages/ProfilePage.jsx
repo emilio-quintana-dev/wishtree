@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import AddToCartModal from "../partials/AddToCartModal";
-import Card from "../partials/Card";
-import CreateWishModal from "../partials/CreateWishModal";
-import EditWishModal from "../partials/EditWishModal";
-import Footer from "../partials/Footer";
-import Notification from "../partials/Notification";
-import Spinner from "../partials/Spinner";
+import AddToCartModal from "../components/AddToCartModal";
+
+// import Card from "../components/Card";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
+import CreateWishModal from "../components/CreateWishModal";
+import EditWishModal from "../components/EditWishModal";
+import Footer from "../components/Footer";
+import Notification from "../components/Notification";
+import Spinner from "../components/Spinner";
 import { Tooltip } from "@material-tailwind/react";
-import ProfileUploadButton from "../partials/UploadButton";
+import ProfileUploadButton from "../components/UploadButton";
+
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 const ProfilePage = ({ user }) => {
   const [fetchedUser, setFetchedUser] = useState({});
@@ -172,7 +183,7 @@ const ProfilePage = ({ user }) => {
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(
-                          `https://wishtree.io/users/${fetchedUser.username}`
+                          `https://wishtree.io/users/${fetchedUser.username}`,
                         );
                       }}
                     >
@@ -219,17 +230,44 @@ const ProfilePage = ({ user }) => {
                 )}
               </div>
 
-              <div className="mt-6 flex flex-wrap justify-between">
-                {fetchedUser.wishes.map((wish) => {
-                  return (
-                    <Card
-                      openModal={(event) => handleCardClick(event, wish)}
-                      key={wish.id}
-                      wish={wish}
-                    />
-                  );
-                })}
-              </div>
+              <Box sx={{ flexGrow: 1 }}>
+                <Grid
+                  container
+                  spacing={{ xs: 2, md: 3 }}
+                  columns={{ xs: 4, sm: 8, md: 12 }}
+                >
+                  {fetchedUser.wishes.map((wish, index) => {
+                    return (
+                      <Grid item xs={2} sm={4} md={4} key={index}>
+                        <Card>
+                          <CardMedia
+                            component="img"
+                            alt="green iguana"
+                            height="140"
+                            width="140"
+                            image={wish.imageUrl}
+                          />
+                          <CardContent>
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="div"
+                            >
+                              {wish.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {wish.price}
+                            </Typography>
+                          </CardContent>
+                          <CardActions>
+                            <Button size="small">Donate</Button>
+                          </CardActions>
+                        </Card>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Box>
             </div>
           </div>
         </section>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Navbar from "../partials/Navbar";
 import Input from "../utils/components/Input";
 
 const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
@@ -17,7 +16,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
   const handleSuccesfulAuth = (data) => {
     handleLogin(data);
     window.location.replace(
-      `http://localhost:3000/users/${data.user.username}`
+      `http://localhost:3000/users/${data.user.username}`,
     );
   };
 
@@ -33,7 +32,7 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
           passwordConfirmation: passwordConfirmation,
           userName: userName,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .then((response) => {
         if (response.data.status === "created") {
@@ -50,13 +49,6 @@ const SignUp = ({ handleLogin, handleLogout, loggedInStatus, user }) => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      {/*  Site header */}
-      <Navbar
-        user={user}
-        loggedInStatus={loggedInStatus}
-        handleLogout={handleLogout}
-      />
-
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white pt-20">

@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../partials/Navbar";
+import Navbar from "../components/Navbar";
 
 import { useParams } from "react-router-dom";
 
@@ -30,7 +30,7 @@ const Checkout = ({ handleLogout, loggedInStatus, user }) => {
 
   const subtotal = cart.cartItems.reduce(
     (accumulator, cartItem) => accumulator + cartItem.price,
-    0
+    0,
   );
 
   const comission = subtotal * 0.1;
@@ -81,7 +81,7 @@ const Checkout = ({ handleLogout, loggedInStatus, user }) => {
                             <p className="text-lg text-gray-900">Quantity</p>
 
                             <p className="text-lg text-gray-900">
-                              {`$ ${cartItem.quantity}`}
+                              {`${cartItem.quantity}`}
                             </p>
                           </div>
                         </div>
@@ -108,13 +108,41 @@ const Checkout = ({ handleLogout, loggedInStatus, user }) => {
                       </p>
                     </div>
                   </div>
+
                   <form
-                    action="http://localhost:3001/create-checkout-session"
+                    action={`${
+                      import.meta.env.VITE_API_ENDPOINT
+                    }/create-checkout-session`}
                     method="POST"
                   >
-                    <input type="hidden" name="name" value="Car" />
-                    <input type="hidden" name="price" value={100} />
-                    <input type="hidden" name="imageUrl" value={""} />
+                    <input
+                      type="hidden"
+                      name="name"
+                      value={cart.cartItems.map((cartItem) => cartItem.name)}
+                    />
+
+                    <input
+                      type="hidden"
+                      name="price"
+                      value={cart.cartItems.map((cartItem) => cartItem.price)}
+                    />
+
+                    <input
+                      type="hidden"
+                      name="imageUrl"
+                      value={cart.cartItems.map(
+                        (cartItem) => cartItem.imageUrl,
+                      )}
+                    />
+
+                    <input
+                      type="hidden"
+                      name="quantity"
+                      value={cart.cartItems.map(
+                        (cartItem) => cartItem.quantity,
+                      )}
+                    />
+
                     <button
                       type="submit"
                       className="btn text-white mt-3 bg-bright-purple w-full text-base rounded-lg"

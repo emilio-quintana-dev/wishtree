@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
+
 import { Routes, Route } from "react-router-dom";
+
 import axios from "axios";
 
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import Checkout from "./pages/Checkout";
+import Footer from "./components/Footer";
+import Landing from "./pages/Landing";
+import Navbar from "./components/Navbar";
 import ProfilePage from "./pages/ProfilePage";
-import Home from "./pages/Home";
 import ResetPassword from "./pages/ResetPassword";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Landing from "./pages/Landing";
-import Navbar from "./partials/Navbar";
 
+import theme from "./theme";
 import "./css/style.css";
 
 function App() {
@@ -36,7 +42,6 @@ function App() {
   };
 
   const checkLoginStatus = () => {
-    console.log(import.meta);
     axios
       .get(`${import.meta.env.VITE_API_ENDPOINT}/logged_in`, {
         withCredentials: true,
@@ -52,7 +57,6 @@ function App() {
 
   const handleError = (error) => {
     console.error(error);
-    // TODO: Implement a user-friendly error handling mechanism.
   };
 
   const commonProps = {
@@ -67,7 +71,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
       <Navbar
         user={user}
         loggedInStatus={loggedInStatus}
@@ -75,21 +81,24 @@ function App() {
       />
 
       <Routes>
-        <>
-          <Route path="/" element={<Home {...commonProps} />} />
-          <Route path="/login" element={<SignIn {...commonProps} />} />
-          <Route path="/signup" element={<SignUp {...commonProps} />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route
-            path="/users/:userName"
-            element={<ProfilePage {...commonProps} />}
-          />
-          <Route path="/cart/:id" element={<Checkout {...commonProps} />} />
-          <Route path="/landing" element={<Landing />} />
-        </>
-        )
+        <Route path="/" element={<Landing {...commonProps} />} />
+
+        <Route path="/login" element={<SignIn {...commonProps} />} />
+
+        <Route path="/signup" element={<SignUp {...commonProps} />} />
+
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        <Route
+          path="/users/:userName"
+          element={<ProfilePage {...commonProps} />}
+        />
+
+        <Route path="/cart/:id" element={<Checkout {...commonProps} />} />
       </Routes>
-    </>
+
+      <Footer />
+    </ThemeProvider>
   );
 }
 

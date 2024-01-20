@@ -2,7 +2,6 @@ import React, { useState, memo } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Navbar from "../partials/Navbar";
 import Input from "../utils/components/Input";
 
 const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
@@ -13,19 +12,19 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
   const handleSuccesfulAuth = (data) => {
     handleLogin(data);
     window.location.replace(
-      `http://localhost:3000/users/${data.user.username}`
+      `http://localhost:3000/users/${data.user.username}`,
     );
   };
 
   const handleSubmit = (event) => {
     axios
       .post(
-        "http://localhost:3001/sessions",
+        `${import.meta.env.VITE_API_ENDPOINT}/sessions`,
         {
           email: email,
           password: password,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .then((response) => {
         if (response.data.status === "created") {
@@ -42,13 +41,6 @@ const SignIn = ({ handleLogout, user, loggedInStatus, handleLogin }) => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      {/*  Site header */}
-      <Navbar
-        user={user}
-        loggedInStatus={loggedInStatus}
-        handleLogout={handleLogout}
-      />
-
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white pt-20">

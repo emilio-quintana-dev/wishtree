@@ -1,18 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100&display=swap'); */
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'additional-styles/utility-patterns.css';
-
-/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
-@layer utilities {
-    .rtl {
-        direction: rtl;
-    }
-}
-
-/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
-[x-cloak=""] {
-    display: none;
-}
