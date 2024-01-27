@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
@@ -47,13 +49,7 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
         ];
 
   return (
-    <AppBar
-      position="sticky"
-      sx={{
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(10px)",
-      }}
-    >
+    <AppBar sx={{ boxShadow: "none", borderBottom: "1px solid #eff0ec" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -81,12 +77,17 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map(({ name, url }) => (
               <Button
+                size="large"
                 key={name}
                 component={Link}
                 color="inherit"
+                variant={"text"}
                 to={url}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: "block" }}
+                sx={{
+                  mr: 2,
+                  textTransform: "none",
+                }}
               >
                 {name}
               </Button>
@@ -104,6 +105,31 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
             >
               <MenuIcon />
             </IconButton>
+
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              {pages.map(({ name }) => (
+                <MenuItem key={name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
         </Toolbar>
       </Container>

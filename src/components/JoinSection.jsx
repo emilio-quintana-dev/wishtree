@@ -8,13 +8,13 @@ import ChunkyButton from "./ChunkyButton";
 
 // --------------------------------------------------
 
-const Features = () => {
+const JoinSection = () => {
   const theme = useTheme();
 
   return (
     <Box
       component="section"
-      id="features"
+      id="join"
       sx={{
         height: "100vh",
         backgroundColor: theme.palette.customPalette.melanie,
@@ -22,62 +22,64 @@ const Features = () => {
     >
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column-reverse", lg: "row" },
-          justifyContent: "space-between",
-          alignItems: "center",
+          maxWidth: { xs: "100%", md: "5xl", lg: "7xl" },
+          paddingTop: { xs: 9, md: 0 },
           height: "100%",
-          paddingX: 10,
+          marginX: "auto",
+          paddingX: { xs: 2.5, md: 10 },
         }}
       >
         <Box
           sx={{
-            maxWidth: "50%",
-            paddingRight: { md: 2 },
-            width: "100%",
-            marginBottom: { xs: 2, md: 0 },
-          }}
-        ></Box>
-
-        <Box
-          sx={{
-            maxWidth: "100%",
-            textAlign: "left",
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            height: "100%",
+            alignItems: "center",
+            paddingBottom: { xs: 2, md: 3, lg: 5 },
           }}
         >
-          <Typography
-            variant="h1"
+          <Box
             sx={{
-              fontSize: { xs: "2.25rem", md: "3.75rem" },
-              fontWeight: "bold",
-              lineHeight: "tighter",
-              letterSpacing: "tighter",
-              marginBottom: 1,
-              color: theme.palette.customPalette.honeyFlower,
+              textAlign: "left",
+              marginBottom: { xs: 2, md: 0 },
+              maxWidth: { md: "50%" },
             }}
           >
-            Join. Create. Earn.
-          </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: "2.25rem", md: "3.75rem" },
+                fontWeight: "bold",
+                lineHeight: "tighter",
+                letterSpacing: "tighter",
+                marginBottom: 1,
+                color: theme.palette.customPalette.honeyFlower,
+              }}
+            >
+              Join. Create. Earn.
+            </Typography>
 
-          <Typography
-            sx={{
-              fontWeight: "normal",
-              color: theme.palette.customPalette.honeyFlower,
-              marginBottom: 2,
-              fontSize: { xs: "1rem", md: "1.25rem" },
-            }}
-          >
-            Share your Wishtree profile with your followers and wait for your
-            donations to come!
-          </Typography>
+            <Typography
+              sx={{
+                fontWeight: "normal",
+                color: theme.palette.customPalette.honeyFlower,
+                marginBottom: 2,
+                fontSize: { xs: "1rem", md: "1.25rem" },
+              }}
+            >
+              Share your Wishtree profile with your followers and wait for your
+              donations to come!
+            </Typography>
 
-          <ChunkyButton color={theme.palette.customPalette.honeyFlower}>
-            Join for free
-          </ChunkyButton>
+            <ChunkyButton color={theme.palette.customPalette.honeyFlower}>
+              Join for free
+            </ChunkyButton>
+          </Box>
         </Box>
       </Box>
     </Box>
   );
 };
 
-export default memo(Features);
+export default memo(JoinSection);

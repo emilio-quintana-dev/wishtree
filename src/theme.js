@@ -15,7 +15,6 @@ export default createTheme({
       honeyFlower: "#502376",
       darkHoneyFlower: alpha("#502376", 0.9),
       darkTan: "#770014",
-      lightGray: "#f3f3f1",
       gray: "#1e2330",
       lightGray: "#eff0ec",
       militaryGreen: "#70764d",
