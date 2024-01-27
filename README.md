@@ -1,8 +1,10 @@
 # A web-app made to help content creators to receive donations from their fans.
 
-https://wishtree.io/
 
-## Screenshots
+# ⛏️⛏️⛏️ Work in progress. ⛏️⛏️⛏️
+
+
+## Screenshots:
 
 ### Home/Landing Page
 
