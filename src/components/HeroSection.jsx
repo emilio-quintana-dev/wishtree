@@ -8,7 +8,7 @@ import ChunkyButton from "./ChunkyButton";
 
 // --------------------------------------------------
 
-const HeroHome = () => {
+const HeroSection = () => {
   const theme = useTheme();
 
   return (
@@ -17,7 +17,6 @@ const HeroHome = () => {
       id="hero-home"
       sx={{
         height: "100vh",
-        backgroundColor: theme.palette.customPalette.seaweed,
       }}
     >
       <Box
@@ -26,7 +25,7 @@ const HeroHome = () => {
           paddingTop: { xs: 9, md: 0 },
           height: "100%",
           marginX: "auto",
-          paddingX: 10,
+          paddingX: { xs: 2.5, md: 10 },
         }}
       >
         <Box
@@ -53,7 +52,7 @@ const HeroHome = () => {
                 fontWeight: "bold",
                 lineHeight: "tight",
                 marginBottom: 1,
-                color: theme.palette.customPalette.barberry,
+                color: theme.palette.customPalette.gray,
               }}
             >
               Everything you want, in a single list.
@@ -64,7 +63,7 @@ const HeroHome = () => {
                 fontWeight: "normal",
                 marginBottom: 2,
                 fontSize: { xs: "1.125rem", md: "1.25rem" },
-                color: theme.palette.customPalette.barberry,
+                color: theme.palette.customPalette.gray,
               }}
             >
               Join our community of influencers and start receiving donations
@@ -81,4 +80,4 @@ const HeroHome = () => {
   );
 };
 
-export default memo(HeroHome);
+export default memo(HeroSection);

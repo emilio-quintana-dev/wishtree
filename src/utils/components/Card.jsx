@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+
 import { Card as MuiCard, CardContent, Typography, Box } from "@mui/material";
 import { getContrastRatio } from "@mui/material/styles";
 import LockIcon from "@mui/icons-material/Lock";

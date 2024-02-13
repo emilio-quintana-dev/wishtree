@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 import { Link as RouterLink } from "react-router-dom";
 
-import { Box, Typography, Grid, Link } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import ChunkyButton from "./ChunkyButton";
@@ -18,7 +18,7 @@ function Footer() {
       sx={{
         backgroundColor: theme.palette.customPalette.melanie,
         maxWidth: { xs: "100%", md: "5xl", lg: "7xl" },
-        paddingX: 10,
+        paddingX: { xs: 2.5, md: 10 },
         paddingY: 5,
       }}
     >
@@ -28,7 +28,7 @@ function Footer() {
           backgroundColor: "white",
           marginTop: { md: 5 },
           marginBottom: { md: 5 },
-          borderRadius: { md: "10px" },
+          borderRadius: { xs: 5, md: 5 },
         }}
       >
         <Grid
@@ -41,12 +41,15 @@ function Footer() {
             <Typography variant="h6" component="h2" fontWeight="bold" mb={1}>
               Company
             </Typography>
-            <Typography mb={1} color="gray.600">
+
+            <Typography mb={1} color="gray.200">
               About Us
             </Typography>
+
             <Typography mb={1} color="gray.600">
               What's New
             </Typography>
+
             <Typography mb={1} color="gray.600">
               Contact
             </Typography>
@@ -56,12 +59,15 @@ function Footer() {
             <Typography variant="h6" component="h2" fontWeight="bold" mb={1}>
               Community
             </Typography>
+
             <Typography mb={1} color="gray.600">
               About Us
             </Typography>
+
             <Typography mb={1} color="gray.600">
               What's New
             </Typography>
+
             <Typography mb={1} color="gray.600">
               Contact
             </Typography>
@@ -71,12 +77,15 @@ function Footer() {
             <Typography variant="h6" component="h2" fontWeight="bold" mb={1}>
               Support
             </Typography>
+
             <Typography mb={1} color="gray.600">
               About Us
             </Typography>
+
             <Typography mb={1} color="gray.600">
               What's New
             </Typography>
+
             <Typography mb={1} color="gray.600">
               Contact
             </Typography>
@@ -86,12 +95,15 @@ function Footer() {
             <Typography variant="h6" component="h2" fontWeight="bold" mb={1}>
               Legal
             </Typography>
+
             <Typography mb={1} color="gray.600">
               About Us
             </Typography>
+
             <Typography mb={1} color="gray.600">
               What's New
             </Typography>
+
             <Typography mb={1} color="gray.600">
               Contact
             </Typography>
