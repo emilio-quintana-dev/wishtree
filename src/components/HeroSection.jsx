@@ -6,6 +6,8 @@ import { useTheme } from "@mui/material/styles";
 
 import ChunkyButton from "./ChunkyButton";
 
+import HeroImage from "../images/Happy.svg";
+
 // --------------------------------------------------
 
 const HeroSection = () => {
@@ -22,7 +24,7 @@ const HeroSection = () => {
       <Box
         sx={{
           maxWidth: { xs: "100%", md: "5xl", lg: "7xl" },
-          paddingTop: { xs: 9, md: 0 },
+          paddingTop: 0,
           height: "100%",
           marginX: "auto",
           paddingX: { xs: 2.5, md: 10 },
@@ -32,7 +34,7 @@ const HeroSection = () => {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
+            justifyContent: { xs: "space-evenly", md: "space-between" },
             height: "100%",
             alignItems: "center",
             paddingBottom: { xs: 2, md: 3, lg: 5 },
@@ -73,6 +75,10 @@ const HeroSection = () => {
             <ChunkyButton color={theme.palette.customPalette.melanie}>
               Create your wishlist
             </ChunkyButton>
+          </Box>
+
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box component="img" src={HeroImage} sx={{ maxWidth: "80%" }} />
           </Box>
         </Box>
       </Box>
