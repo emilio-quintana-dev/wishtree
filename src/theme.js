@@ -2,9 +2,10 @@ import { createTheme, alpha } from "@mui/material/styles";
 
 export default createTheme({
   palette: {
-    mode: "light",
     primary: {
-      main: "#fff",
+      light: "#fff",
+      main: "#061492",
+      contrastText: "#000",
     },
     customPalette: {
       purple: "#6142fb",
@@ -23,5 +24,6 @@ export default createTheme({
   },
   typography: {
     fontFamily: ["Poppins", "sans-serif"].join(","),
+    fontSize: 14,
   },
 });

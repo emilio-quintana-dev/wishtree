@@ -13,6 +13,7 @@ const ChunkyButton = ({
   marginRight = 0,
   marginTop = 0,
   marginBottom = 0,
+  width = "auto",
 }) => {
   return (
     <Button
@@ -30,6 +31,7 @@ const ChunkyButton = ({
         marginBottom: marginBottom,
         borderRadius: "2.5rem",
         "&:hover": { backgroundColor: alpha(color, 0.9) },
+        width: width,
       }}
     >
       {children}

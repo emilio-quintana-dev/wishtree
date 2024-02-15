@@ -2,22 +2,29 @@ import React, { memo } from "react";
 
 import { Link } from "react-router-dom";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import {
+  AppBar,
+  Box,
+  Button,
+  Chip,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import { useTheme } from "@mui/material/styles";
+
 // --------------------------------------------------
 
 const Navbar = ({ user, loggedInStatus, handleLogout }) => {
+  const theme = useTheme();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -49,7 +56,13 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
         ];
 
   return (
-    <AppBar sx={{ boxShadow: "none", borderBottom: "1px solid #eff0ec" }}>
+    <AppBar
+      sx={{
+        boxShadow: "none",
+        borderBottom: "1px solid #eff0ec",
+        backgroundColor: "#fff",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -70,6 +83,8 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
           >
             LOGO
           </Typography>
+
+          <Chip label="Powered by Stripe." />
 
           {/* Spacer element */}
           <Box sx={{ flexGrow: 1 }}></Box>
