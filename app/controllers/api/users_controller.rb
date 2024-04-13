@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   include ActiveStorage::SetCurrent
 
   # This endpoint is used to fetch a user's information.
