@@ -5,4 +5,5 @@ import ReactPlugin from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
   plugins: [RubyPlugin(), ReactPlugin()],
+  build: { sourcemap: false },
 });
