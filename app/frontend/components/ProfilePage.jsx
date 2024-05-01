@@ -19,7 +19,7 @@ import {
   Button,
 } from "@mui/material";
 
-import ImgDialog from "../components/imgDialog";
+// import ImgDialog from "../components/imgDialog";
 
 import { useTheme } from "@mui/material/styles";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -192,12 +192,13 @@ const ProfilePage = ({ user }) => {
     <>
       <Box
         component="img"
-        src="https://source.unsplash.com/random?landscape"
+        src="https://source.unsplash.com/random?color"
         sx={{
           height: 400,
           width: "100%",
         }}
       />
+
       <Container sx={{ backgroundColor: "#edeff1" }} maxWidth="100%">
         <Container
           component="main"

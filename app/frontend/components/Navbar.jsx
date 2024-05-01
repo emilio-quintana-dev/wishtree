@@ -6,7 +6,6 @@ import {
   AppBar,
   Box,
   Button,
-  Chip,
   Container,
   IconButton,
   Menu,
@@ -74,14 +73,12 @@ const Navbar = ({ user, loggedInStatus, handleLogout }) => {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Wishtree
           </Typography>
 
           {/* Spacer element */}

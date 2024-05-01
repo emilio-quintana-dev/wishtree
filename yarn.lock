@@ -1192,6 +1192,11 @@ tslib@2.0.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
   integrity sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
 
+vanilla-tilt@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/vanilla-tilt/-/vanilla-tilt-1.8.1.tgz#09cb4dc89509a55a44bb221917bb8ecdc2e39113"
+  integrity sha512-hPB1XUsnh+SIeVSW2beb5RnuFxz4ZNgxjGD78o52F49gS4xaoLeEMh9qrQnJrnEn/vjjBI7IlxrrXmz4tGV0Kw==
+
 vite-plugin-ruby@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-ruby/-/vite-plugin-ruby-5.0.0.tgz#cd891198a7672f2e8402439f53ab9d2b08f6502d"
